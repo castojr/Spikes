@@ -32,21 +32,29 @@ namespace SupportCenterKnowledgeBase
         int multipass = 12;
         int signature = 123;
 
+        int emSiteKey = 2;
+        int emultipass = 23;
+        int esignature = 234;
+
+        int imSiteKey = 3;
+        int imultipass = 34;
+        int isignature = 345;
+
         private string LoginCheck()
         {
            
-            //Username check
+            //Check for Brand 
             if (userNameTextBox.Text == "Advisor" && passwordTextBox.Text == "Advisor")
             {
                 return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
             }
             else if (userNameTextBox.Text == "Eqisarian" && passwordTextBox.Text == "Eqisarian")
             {
-                return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
+                return resultLabel.Text = string.Format(_DeskUrl, emSiteKey, emultipass, esignature);
             }
             else if (userNameTextBox.Text == "Investor" && passwordTextBox.Text == "Investor")
             {
-                return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
+                return resultLabel.Text = string.Format(_DeskUrl, imSiteKey, imultipass, isignature);
             }
             else
             {
