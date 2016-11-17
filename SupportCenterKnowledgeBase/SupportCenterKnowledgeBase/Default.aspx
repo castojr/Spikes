@@ -50,10 +50,14 @@
         <p class="auto-style3">
             <asp:TextBox ID="passwordTextBox" runat="server" Width="252px"></asp:TextBox>
         </p>
+        <p class="auto-style3">
+            <asp:Button ID="loginButton" runat="server" BackColor="#3399FF" BorderColor="#3399FF" BorderStyle="Groove" ForeColor="White" OnClick="loginButton_Click" Text="Login &gt;&gt;" />
+        </p>
         <p>
             &nbsp;</p>
         <p>
             &nbsp;</p>
+        <asp:Label ID="resultLabel" runat="server"></asp:Label>
     </form>
 </body>
 </html>
