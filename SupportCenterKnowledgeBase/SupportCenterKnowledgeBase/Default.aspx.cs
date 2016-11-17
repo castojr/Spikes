@@ -11,18 +11,18 @@ namespace SupportCenterKnowledgeBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            InitializingPageonFirstLoad();
+        }
 
+        private void InitializingPageonFirstLoad()
+        {
+
+            if(!IsPostBack)
+            Session["userType"] = userNameTextBox.Text = passwordTextBox.Text = string.Empty;
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-
-            // Error checking for no value
-            if (userNameTextBox.Text.Trim().Length == 0)
-            {
-                return;
-            }
-
             LoginCheck();
         }
 
@@ -32,34 +32,35 @@ namespace SupportCenterKnowledgeBase
         int multipass = 12;
         int signature = 123;
 
-        int emSiteKey = 2;
-        int emultipass = 23;
-        int esignature = 234;
-
-        int imSiteKey = 3;
-        int imultipass = 34;
-        int isignature = 345;
-
         private string LoginCheck()
         {
            
             //Check for Brand 
             if (userNameTextBox.Text == "Advisor" && passwordTextBox.Text == "Advisor")
             {
+                GoToUserTypePage("Advisor");
                 return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
             }
             else if (userNameTextBox.Text == "Eqisarian" && passwordTextBox.Text == "Eqisarian")
             {
-                return resultLabel.Text = string.Format(_DeskUrl, emSiteKey, emultipass, esignature);
+                GoToUserTypePage("Eqisarian");
+                return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
             }
             else if (userNameTextBox.Text == "Investor" && passwordTextBox.Text == "Investor")
             {
-                return resultLabel.Text = string.Format(_DeskUrl, imSiteKey, imultipass, isignature);
+                GoToUserTypePage("Investor");
+                return resultLabel.Text = string.Format(_DeskUrl, mSiteKey, multipass, signature);
             }
             else
             {
                 return resultLabel.Text = "ERROR";
             }
+        }
+
+        private void GoToUserTypePage(string userType)
+        {
+            Session["userType"] = userType;
+            Response.Redirect("/JoeysHackathon.aspx");
         }
     }
 }
