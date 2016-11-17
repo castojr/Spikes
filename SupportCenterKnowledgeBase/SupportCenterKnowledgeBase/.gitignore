@@ -1,0 +1,13 @@
+App_Data/*
+bin/*
+Models/*
+obj/*
+Properties/*
+ApplicationInsights.config
+Global.asax
+Global.asax.cs
+packages.config
+SupportCenterKnowledgeBase.csproj
+SupportCenterKnowledgeBase.csproj.user
+Web.Debug.config
+Web.Release.config
